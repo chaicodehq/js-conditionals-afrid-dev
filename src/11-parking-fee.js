@@ -13,7 +13,7 @@
  *
  * Daily Maximum (fee can never exceed this):
  *   - "car":        $30
- *   - "motorcycle": $18
+ *   - "motorcycle": $18  
  *   - "bus":        $60
  *
  * Rules:
@@ -33,5 +33,45 @@
  * @returns {number} Parking fee or -1 for invalid input
  */
 export function calculateParkingFee(hours, vehicleType) {
-  // Your code here
+  
+  if (hours <= 0 || (vehicleType != "car" && vehicleType != "motorcycle" && vehicleType != "bus"))
+  {
+    return -1
+  }
+  
+  let billerhours = Math.ceil(hours)
+  let extrahourfee
+  let firsthourfee
+  let maxfee
+
+  if (vehicleType === "car")
+  {
+    firsthourfee = 5
+    extrahourfee = 3
+    maxfee = 30
+
+  }
+  else if (vehicleType === "motorcycle") {
+         firsthourfee = 3;
+         extrahourfee = 2;
+         maxfee = 18;
+
+  }
+
+  else if (vehicleType === "bus") {
+         firsthourfee = 10;
+         extrahourfee = 7;
+         maxfee = 60;
+
+  }
+  
+   let fee = firsthourfee  + ((billerhours-1) * extrahourfee)
+ 
+  
+  return Math.min(fee,maxfee)
+       
+  
 }
+
+console.log(calculateParkingFee(5,"car"));
+

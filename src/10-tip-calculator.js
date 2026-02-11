@@ -30,5 +30,73 @@
  * @returns {{ tipPercentage: number, tipAmount: number, totalAmount: number } | null}
  */
 export function calculateTip(billAmount, serviceRating) {
-  // Your code here
+    
+    if (billAmount <= 0 || serviceRating < 1 || serviceRating > 5 || !Number.isInteger(serviceRating) ) {
+        return null
+            
+    }
+    
+            
+    let tipAmount
+    let totalAmount
+    let tipPercentage
+    if (serviceRating === 1) {
+                
+        tipPercentage = 5
+        tipAmount = billAmount * 0.05
+        totalAmount = billAmount + tipAmount
+            return  {tipPercentage: tipPercentage  , tipAmount: tipAmount, totalAmount: totalAmount} 
+            ;    
+    }
+   else if (serviceRating === 2) {
+                
+        tipPercentage = 10
+        tipAmount = billAmount * 0.10
+        totalAmount = billAmount + tipAmount
+              return {
+                tipPercentage: tipPercentage,
+                tipAmount: tipAmount,
+                totalAmount: totalAmount,
+              };   
+    }
+   else if (serviceRating === 3) {
+                
+        tipPercentage = 15
+        tipAmount = billAmount * 0.15
+        totalAmount = billAmount + tipAmount
+                return {
+                  tipPercentage: tipPercentage,
+                  tipAmount: tipAmount,
+                  totalAmount: totalAmount,
+                };
+    }
+    else if (serviceRating === 4) {
+                
+        tipPercentage = 20
+        tipAmount = billAmount * 0.20
+        totalAmount = billAmount + tipAmount
+            return {
+              tipPercentage: tipPercentage,
+              tipAmount: tipAmount,
+              totalAmount: totalAmount,
+            };     
+    }
+    else if (serviceRating === 5) {
+                
+        tipPercentage = 25
+        tipAmount = billAmount * 0.25
+        totalAmount = billAmount + tipAmount
+            return {
+              tipPercentage: tipPercentage,
+              tipAmount: tipAmount,
+              totalAmount: totalAmount,
+            };    
+    }
+    
 }
+
+
+
+        
+        
+console.log(calculateTip(2000, 5));
