@@ -73,4 +73,4 @@ export function getSeasonActivity(month, temperature) {
   return { season: season, activity: activity };
 }
 
-console.log(getSeasonActivity(2,20));
+console.log(getSeasonActivity(2,19));
